@@ -1,0 +1,10 @@
+{% extends "st/base.html" %}
+{% block conteudo %}
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Entrar</button>
+    </form>
+    <p>Não tem uma conta? <a href="{% url 'registro' %}">Registre-se</a>.</p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "st/base.html" %}
+{% block conteudo %}
+    <section>
+        <h3 class="mb-3">Lista de Alunos</h3>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Matrícula</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in alunos %}
+                    <tr>
+                        <td>
+                            <img src="{{ aluno.foto_url }}" alt="Foto de {{ aluno.nome_aluno }}" class="img-thumbnail" style="max-width: 100px;">
+                        </td>
+                        <td>{{ aluno.nome_aluno }}</td>
+                        <td>{{ aluno.matricula_aluno }}</td>
+                        <td>
+                            <a href="{% url 'editar' aluno.id_aluno %}" class="btn btn-warning btn-sm">Editar</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'excluir' aluno.id_aluno %}" class="btn btn-danger btn-sm">Excluir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
+{% endblock %}
