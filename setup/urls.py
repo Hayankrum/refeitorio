@@ -17,6 +17,12 @@ urlpatterns = [
     path('editar/<str:id>', views.editar, name='editar'),
     path('excluir/<str:id>', views.excluir, name='excluir'),
 
+
+    path('ev_new/',views.ev_new, name='ev_new'),
+    path('ev_lista/', views.ev_lista, name='ev_lista'),
+    path('ev_editar/<int:id_evento>/', views.ev_editar, name='ev_editar'),  # URL para editar evento
+    path('ev_excluir/<int:id_evento>/', views.ev_excluir, name='ev_excluir'),  # URL para excluir evento
+
     re_path(r'^img/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
 

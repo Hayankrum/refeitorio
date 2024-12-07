@@ -1,0 +1,16 @@
+{% extends "st/base.html" %}
+{% block conteudo %}
+<div class="container py-5">
+        <h2 class="text-center mb-4">Gerenciar Eventos</h2>
+        <section class="mb-5">
+            <h3>Excluir Evento</h3>
+            <form method="POST" enctype="multipart/form-data" class="border p-4 rounded bg-white shadow-sm">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="text-end">
+                    <input type="submit" value="Excluir" class="btn btn-outline-secondary">
+                </div>
+            </form>
+        </section>
+    </div>
+{% endblock %}

@@ -25,11 +25,13 @@ class Aluno(models.Model):
     def __str__(self):
         return self.nome_aluno
 
-class Evento(models.Model):
+class Evento(models.Model): 
     id_evento = models.AutoField(primary_key=True)
     nome_evento = models.CharField(max_length=255, null=False)
     foto_evento = models.ImageField(upload_to='eventos/', blank=True, null=True)  # Imagens de eventos vão para a pasta 'eventos/'
-    id_aluno = models.ForeignKey(Aluno, models.DO_NOTHING, db_column="id_aluno")
+    id_aluno = models.ForeignKey(Aluno, models.DO_NOTHING, db_column="id_aluno", null=True, blank=True) # Garantir que id_aluno não seja NULL
+
+    # Outros campos do evento
 
     def __str__(self):
         return self.nome_evento

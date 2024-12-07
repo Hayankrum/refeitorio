@@ -1,0 +1,39 @@
+{% extends "st/base.html" %}
+{% block conteudo %}
+    <h2 class="text-center mb-4">Gerenciar Eventos</h2>
+    <section>
+        <h3 class="mb-3">Lista de Eventos</h3>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nome do Evento</th>
+                    <th scope="col">Aluno Responsável</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventos %}
+                    <tr>
+                        <td>
+                            <img src="{{ evento.foto_evento.url }}" alt="Foto de {{ evento.nome_evento }}" class="img-thumbnail" style="max-width: 100px;">
+                        </td>
+                        <td>{{ evento.nome_evento }}</td>
+                        <td>{{ evento.id_aluno.nome_aluno }}</td>  <!-- Exibindo o nome do aluno -->
+                        <td>
+                            <a href="{% url 'ev_editar' evento.id_evento %}" class="btn btn-outline-secondary">Editar</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'ev_excluir' evento.id_evento %}" class="btn btn-outline-secondary">Excluir</a>
+                        </td>                        
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">Nenhum evento encontrado.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
