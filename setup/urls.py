@@ -12,7 +12,7 @@ urlpatterns = [
     path('',include('userapp.urls')),
     path('',include('userapp.urls')),
 
-    path('new/',views.new, name='new'),
+    path('',views.new, name='new'),
     path('lista/', views.lista, name='lista'),
     path('editar/<str:id>', views.editar, name='editar'),
     path('excluir/<str:id>', views.excluir, name='excluir'),
